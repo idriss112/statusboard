@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #f5f6fa;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.online-count {
+  background: #e6f9ed;
+  color: #2ecc71;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background: white;
+  border-right: 1px solid #eee;
+  padding: 20px;
+}
+
+.sidebar h4 {
+  margin-bottom: 15px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #eee;
+}
+
+/* STATUS BADGE */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.green { background: #e6f9ed; color: #2ecc71; }
+.orange { background: #fff4e5; color: #f39c12; }
+.red { background: #ffeaea; color: #e74c3c; }
+
+/* BUTTONS */
+.btn-group button {
+  margin-right: 5px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-green { background: #2ecc71; color: white; }
+.btn-orange { background: #f39c12; color: white; }
+.btn-red { background: #e74c3c; color: white; }
