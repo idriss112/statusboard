@@ -31,11 +31,14 @@ export default function LoginForm({ onJoin }) {
 
 const styles = {
   overlay: {
-    height: "100vh",
+    position: "fixed",
+    inset: 0,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "#f5f6fa",
+    background: "rgba(245, 246, 250, 0.42)",
+    backdropFilter: "blur(4px)",
+    zIndex: 20,
   },
   box: {
     background: "white",
@@ -43,6 +46,7 @@ const styles = {
     borderRadius: "12px",
     width: "300px",
     textAlign: "center",
+    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.12)",
   },
   input: {
     width: "100%",

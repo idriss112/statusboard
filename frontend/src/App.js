@@ -11,18 +11,32 @@ const socket = io("https://statusboard-0uns.onrender.com", {
 function App() {
   const [user, setUser] = useState(null);
   const [members, setMembers] = useState([]);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     socket.on("members:update", (data) => {
       setMembers(data);
     });
 
-    return () => socket.off("members:update");
+    socket.on("history:update", (data) => {
+      setEvents(data);
+    });
+
+    return () => {
+      socket.off("members:update");
+      socket.off("history:update");
+    };
   }, []);
 
   const handleJoin = (name) => {
-    setUser(name);
-    socket.emit("user:join", { name });
+    const cleanName = name.trim();
+
+    if (!cleanName) {
+      return;
+    }
+
+    setUser(cleanName);
+    socket.emit("user:join", { name: cleanName });
   };
 
   const changeStatus = (status) => {
@@ -31,15 +45,14 @@ function App() {
 
   return (
     <div>
-      {!user ? (
-        <LoginForm onJoin={handleJoin} />
-      ) : (
-        <StatusBoard
-          members={members}
-          currentUser={user}
-          onStatusChange={changeStatus}
-        />
-      )}
+      <StatusBoard
+        members={members}
+        currentUser={user}
+        onStatusChange={changeStatus}
+        events={events}
+      />
+
+      {!user && <LoginForm onJoin={handleJoin} />}
     </div>
   );
 }
