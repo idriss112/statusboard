@@ -4,7 +4,9 @@ import LoginForm from "./components/LoginForm";
 import StatusBoard from "./components/StatusBoard";
 import "./App.css";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://statusboard-0uns.onrender.com", {
+  transports: ["websocket"],
+});
 
 function App() {
   const [user, setUser] = useState(null);
